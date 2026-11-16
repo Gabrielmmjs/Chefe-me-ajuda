@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chefe te ajuda — Apresentação do Projeto</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍳</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ══════════════════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════════════════ -->
+    <header class="hero">
+        <div class="hero-inner">
+            <img src="midia/cozinheiro-preguicoso.png" alt="Chef Prático" class="hero-chef">
+            <h1>Chefe te <span>ajuda</span></h1>
+            <p class="sub">
+                Diga o que você tem e a gente faz uma receita incrível para você!
+            </p>
+            <span class="badge">🎓 Trabalho Prático — Web Services</span>
+        </div>
+    </header>
+
+    <!-- ══════════════════════════════════════════════════════
+         NAV DE ÂNCORAS
+    ═══════════════════════════════════════════════════════ -->
+    <nav class="nav-ancora" aria-label="Navegação da apresentação">
+        <ul>
+            <li><a href="#sobre">Sobre o site</a></li>
+            <li><a href="#api-key">Chave API</a></li>
+            <li><a href="#scraping">Web Scraping</a></li>
+            <li><a href="#open-food">Open Food Facts</a></li>
+            <li><a href="#gemini">Gemini IA</a></li>
+            <li><a href="#videos">Vídeos</a></li>
+        </ul>
+    </nav>
+
+    <!-- ══════════════════════════════════════════════════════
+         CONTEÚDO
+    ═══════════════════════════════════════════════════════ -->
+    <main class="conteudo">
+
+        <!-- ── 1. Sobre o site ──────────────────────────── -->
+        <section class="secao" id="sobre">
+            <div class="secao-header">
+                <div class="secao-icone">🍳</div>
+                <h2>O que é o Chefe te ajuda?</h2>
+            </div>
+            <div class="card-texto">
+                <p>
+                    Sabe aquele momento em que você abre a geladeira, olha para aqueles ingredientes espalhados e não
+                    sabe o que fazer? É exatamente aí que o <strong>Chefe te ajuda</strong> entra.
+                </p>
+                <p>
+                    O site é uma aplicação web que transforma ingredientes avulsos em uma receita completa, detalhada
+                    e adaptada ao seu estilo de cozinha. Você informa o que tem em casa, escolhe um dos quatro
+                    <strong>chefs virtuais</strong> e, em segundos, recebe um modo de preparo passo a passo gerado
+                    por inteligência artificial.
+                </p>
+                <p><strong>Objetivo principal:</strong> te ajudar a montar um prato de forma prática e divertida.</p>
+                <ul>
+                    <li>Consulta dados nutricionais reais de produtos (calorias, alérgenos, Nutri-Score).</li>
+                    <li>Busca receitas verdadeiras na web e as usa como referência para a IA.</li>
+                    <li>Gera um modo de preparo rico e didático usando o Google Gemini.</li>
+                    <li>Oferece quatro personalidades de chef com estilos e objetivos diferentes.</li>
+                </ul>
+            </div>
+            <img src="midia/print-site-PRINCIPAL.png" alt="Print do site Chefe te ajuda" class="print-site"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="print-placeholder" style="display:none">
+                <span>🖼️</span>
+                <p>Coloque <strong>print-site-PRINCIPAL.png</strong> na pasta <code>midia/</code></p>
+            </div>
+            <p class="legenda">Tela principal do aplicativo</p>
+        </section>
+
+        <div class="divisor"></div>
+
+        <!-- ── 2. Chave de API ──────────────────────────── -->
+        <section class="secao" id="api-key">
+            <div class="secao-header">
+                <div class="secao-icone">🔑</div>
+                <h2>Criando sua chave de API do Gemini</h2>
+            </div>
+            <div class="card-texto">
+                <p>
+                    Para que o chef possa gerar receitas, o site precisa se comunicar com o <strong>Google
+                        Gemini</strong>,
+                    que é o modelo de inteligência artificial utilizado. Essa comunicação é feita por meio de uma
+                    <strong>chave de API</strong> — basicamente, uma senha que identifica quem está fazendo o pedido ao
+                    serviço do Google.
+                </p>
+                <p>
+                    A boa notícia: a chave é <strong>totalmente gratuita</strong> e fácil de obter. Veja como:
+                </p>
+                <ol class="passos-lista">
+                    <li>
+                        <span>Acesse <a href="https://aistudio.google.com/apikey" target="_blank"
+                                rel="noopener">aistudio.google.com/apikey</a> com sua conta Google.</span>
+                    </li>
+                    <li>
+                        <span>Clique em <strong>"Create API key"</strong> e selecione um projeto (ou crie um
+                            novo).</span>
+                    </li>
+                    <li>
+                        <span>Copie a chave gerada (começa com <code>AIza...</code>).</span>
+                    </li>
+                    <li>
+                        <span>No site, abra a seção <strong>"Configurações: chaves do Gemini"</strong>, cole a chave e
+                            clique em <strong>Salvar</strong>.</span>
+                    </li>
+                </ol>
+                <p style="margin-top:14px">
+                    Você pode adicionar <strong>várias chaves</strong> — uma por linha. O app faz o rodízio automático
+                    entre elas quando uma atinge o limite de requisições, garantindo que o serviço continue funcionando
+                    sem interrupção.
+                </p>
+            </div>
+
+            <!-- PRINT API -->
+            <img src="midia/print-site-API.png" alt="Print da tela de configuração da chave API" class="print-site"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="print-placeholder" style="display:none">
+                <span>🖼️</span>
+                <p>Coloque <strong>print-site-API.png</strong> na pasta <code>midia/</code></p>
+            </div>
+            <p class="legenda">Tela de configuração das chaves do Gemini</p>
+        </section>
+
+        <div class="divisor"></div>
+
+        <!-- ── 3. Web Scraping ──────────────────────────── -->
+        <section class="secao" id="scraping">
+            <div class="secao-header">
+                <div class="secao-icone">🕸️</div>
+                <h2>Web Scraping no TudoGostoso</h2>
+            </div>
+            <div class="card-texto">
+                <p>
+                    Antes de acionar a IA, o aplicativo vai até a internet buscar receitas reais. Essa técnica se chama
+                    <strong>web scraping</strong>: o servidor da aplicação acessa automaticamente páginas de um site,
+                    lê o HTML retornado e extrai as informações úteis — como título, ingredientes e modo de preparo.
+                </p>
+                <p>
+                    O site consultado é o <strong>TudoGostoso</strong>, um dos maiores portais de receitas do Brasil.
+                    O processo funciona assim:
+                </p>
+                <ul>
+                    <li>O backend recebe os ingredientes digitados pelo usuário.</li>
+                    <li>Faz uma busca no TudoGostoso usando esses ingredientes como termo de pesquisa.</li>
+                    <li>Coleta os links das receitas encontradas (até 8 resultados).</li>
+                    <li>Acessa cada link e extrai os dados usando a biblioteca <strong>Cheerio</strong> (que lê e
+                        seleciona elementos do HTML como se fosse um jQuery no servidor).</li>
+                    <li>As receitas extraídas são entregues ao Gemini como referência gastronômica sólida.</li>
+                </ul>
+                <p>
+                    Como os navegadores não podem acessar outros sites diretamente por razões de segurança (política
+                    CORS), todo esse processo acontece no <strong>servidor Node.js</strong>, que atua como um
+                    intermediário invisível entre o usuário e a web.
+                </p>
+            </div>
+
+            <!-- PRINT TUDOGOSTOSO -->
+            <img src="midia/print-site-TUDOGOSTOSO.png" alt="Print do site TudoGostoso sendo consultado"
+                class="print-site" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="print-placeholder" style="display:none">
+                <span>🖼️</span>
+                <p>Coloque <strong>print-site-TUDOGOSTOSO.png</strong> na pasta <code>midia/</code></p>
+            </div>
+            <p class="legenda">Exemplo de busca de receitas no portal TudoGostoso</p>
+        </section>
+
+        <div class="divisor"></div>
+
+        <!-- ── 4. Open Food Facts ───────────────────────── -->
+        <section class="secao" id="open-food">
+            <div class="secao-header">
+                <div class="secao-icone">🥦</div>
+                <h2>Open Food Facts — Dados Nutricionais Reais</h2>
+            </div>
+            <div class="card-texto">
+                <p>
+                    O <strong>Open Food Facts</strong> é um banco de dados aberto e colaborativo com informações
+                    nutricionais de produtos alimentícios de todo o mundo. Pense nele como o "Wikipédia dos alimentos":
+                    qualquer pessoa pode contribuir, e os dados são gratuitos para uso.
+                </p>
+                <p>
+                    No aplicativo, quando o usuário digita um ingrediente e clica na <strong>🔍 lupa</strong>, o site
+                    consulta a API do Open Food Facts para identificar o produto industrializado correspondente. Com
+                    isso, o app obtém dados reais como:
+                </p>
+                <ul>
+                    <li><strong>Calorias por 100g</strong> e macronutrientes (proteínas, carboidratos, gorduras).</li>
+                    <li><strong>Alérgenos declarados</strong> (glúten, lactose, ovos, amendoim etc.), que ativam os
+                        alertas de restrição alimentar na interface.</li>
+                    <li><strong>Nutri-Score</strong> (escala de A a E), exibido no semáforo colorido da receita
+                        gerada.</li>
+                    <li><strong>Grupo NOVA</strong>, que classifica o grau de processamento do alimento.</li>
+                </ul>
+                <p>
+                    Essas informações chegam ao Gemini junto com os ingredientes, tornando a receita gerada muito mais
+                    precisa em termos nutricionais. O chef <strong>Nutri</strong>, por exemplo, usa esses dados para
+                    priorizar ingredientes com maior valor proteico e menor grau de processamento.
+                </p>
+            </div>
+        </section>
+
+        <div class="divisor"></div>
+
+        <!-- ── 5. Gemini ────────────────────────────────── -->
+        <section class="secao" id="gemini">
+            <div class="secao-header">
+                <div class="secao-icone">🤖</div>
+                <h2>Google Gemini — O Cérebro da Receita</h2>
+            </div>
+            <div class="card-texto">
+                <p>
+                    O <strong>Google Gemini</strong> é o modelo de linguagem (LLM) responsável por gerar a receita
+                    final. Ele não recebe apenas uma pergunta simples como "o que fazer com ovo e queijo?" — ele recebe
+                    um <strong>prompt de engenharia estruturada</strong>, montado a partir de três fontes de dados
+                    combinadas.
+                </p>
+                <p>Dentro do prompt enviado ao Gemini estão:</p>
+                <ul>
+                    <li>A <strong>personalidade e o objetivo</strong> do chef escolhido (ex: o Chef Mirabolante prioriza
+                        técnicas avançadas; o Chef Prático quer poucos ingredientes e passos curtos).</li>
+                    <li>A <strong>lista de ingredientes</strong> do usuário com seus dados nutricionais da Open Food
+                        Facts.</li>
+                    <li>A <strong>receita raspada do TudoGostoso</strong> mais adequada ao perfil do chef, usada como
+                        referência técnica e gastronômica.</li>
+                    <li>As <strong>restrições alimentares</strong> ativas e o tipo de refeição desejado (café da manhã,
+                        almoço, lanche ou jantar).</li>
+                </ul>
+                <p>
+                    O Gemini responde sempre em <strong>JSON estruturado</strong>, com campos como nome do prato,
+                    passos detalhados (cada um com título, descrição rica e tempo de preparo em segundos), lista de
+                    ingredientes com proporções, macronutrientes estimados e até sugestões de substituição para
+                    ingredientes que faltem.
+                </p>
+                <p>
+                    O app suporta <strong>múltiplas chaves e modelos</strong> com fallback automático: se um modelo
+                    atingir o limite, o sistema tenta o próximo automaticamente — tudo transparente para o usuário.
+                </p>
+            </div>
+        </section>
+
+        <div class="divisor"></div>
+
+        <!-- ── 6. Vídeos ────────────────────────────────── -->
+        <section class="secao" id="videos">
+            <div class="secao-header">
+                <div class="secao-icone">🎬</div>
+                <h2>Veja o app em ação</h2>
+            </div>
+
+            <div class="video-grid">
+
+                <!-- Vídeo 1 -->
+                <div class="video-card">
+                    <video controls preload="metadata">
+                        <source src="midia/mostrando-chefes.mp4" type="video/mp4">
+                        Seu navegador não suporta a reprodução de vídeo.
+                    </video>
+                    <div class="video-card-info">
+                        <strong>👨‍🍳 Mostrando os Chefs</strong>
+                        <span>Demonstração dos 4 chefs virtuais e como cada um gera uma receita diferente.</span>
+                    </div>
+                </div>
+
+                <!-- Vídeo 2 -->
+                <div class="video-card">
+                    <video controls preload="metadata">
+                        <source src="midia/mostrando-restricoes.mp4" type="video/mp4">
+                        Seu navegador não suporta a reprodução de vídeo.
+                    </video>
+                    <div class="video-card-info">
+                        <strong>🚫 Mostrando Restrições</strong>
+                        <span>Demonstração do sistema de restrições alimentares e alertas de alérgenos.</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ══════════════════════════════════════════════════════
+         RODAPÉ
+    ═══════════════════════════════════════════════════════ -->
+    <footer>
+        <p>Desenvolvido por <strong>Gabriel Moraes</strong> &mdash; Disciplina de Web Services</p>
+        <p style="margin-top:4px">IF Sudeste de Minas Gerais &mdash; 2026</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chefe te ajuda</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍳</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Figtree:wght@500;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>Chefe te ajuda</h1>
+        </header>
+        <p class="sub">Diga o que você tem e a gente faz uma receita incrível para você!</p>
+
+        <details id="config">
+            <summary>Configurações: chaves do Gemini <span class="info-tip" tabindex="0" onclick="event.stopPropagation()">i<span class="tip-conteudo">Chaves gratuitas em <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a>. Quanto mais chaves, melhor o rodízio.</span></span></summary>
+            <textarea id="chaves"
+                placeholder="Cole uma chave por linha (o app troca de chave sozinho quando uma esgota)"></textarea>
+            <button id="salvarChaves" class="btn" style="margin-top:8px">Salvar</button>
+        </details>
+
+        <section>
+            <h2>1. O que tem na geladeira? <span class="info-tip" tabindex="0">i<span class="tip-conteudo">Toque na lupa de um item para escolher o produto exato: assim o app confere os alérgenos reais (Open Food Facts).</span></span></h2>
+            <div class="linha">
+                <input id="novo" type="text" placeholder="Ex.: ovo, miojo, queijo" autocomplete="off">
+                <button id="add" class="btn">Adicionar</button>
+            </div>
+            <div id="chips" class="chips"></div>
+            <div id="alertas"></div>
+            <div id="picker"></div>
+        </section>
+
+        <section class="grade">
+            <h2>2. Como vai ser?</h2>
+            <fieldset class="restricoes">
+                <legend>Restrições alimentares (opcional) <span class="info-tip" tabindex="0">i<span class="tip-conteudo">Os alertas usam os alérgenos da Open Food Facts (dados da comunidade, podem estar incompletos) e o nome dos itens. Confira sempre o rótulo.</span></span></legend>
+                <label class="rest"><input type="checkbox" value="gluten"><span>Sem glúten</span></label>
+                <label class="rest"><input type="checkbox" value="lactose"><span>Sem lactose</span></label>
+                <label class="rest"><input type="checkbox" value="vegetariano"><span>Vegetariano</span></label>
+                <label class="rest"><input type="checkbox" value="vegano"><span>Vegano</span></label>
+                <label class="rest"><input type="checkbox" value="ovo"><span>Sem ovo</span></label>
+                <label class="rest"><input type="checkbox" value="amendoim"><span>Sem amendoim e
+                        castanhas</span></label>
+            </fieldset>
+            <div><label for="refeicao">Qual refeição?</label>
+                <select id="refeicao">
+                    <option>Café da manhã</option>
+                    <option selected>Almoço</option>
+                    <option>Jantar</option>
+                    <option>Lanche</option>
+                </select>
+            </div>
+            <fieldset class="personas">
+                <legend>Escolha o chef</legend>
+                <label class="persona"><input type="radio" name="chef" value="padrao" checked><span><img src="images/cozinheiro-padrao.png" alt="Chef Padrão" class="persona-img"><b>Chef Padrão</b><small>O clássico que todo mundo faz</small></span></label>
+                <label class="persona"><input type="radio" name="chef" value="pratico"><span><img src="images/cozinheiro-preguicoso.png" alt="Chef Prático" class="persona-img"><b>Chef Prático</b><small>Rápido e sem frescura</small></span></label>
+                <label class="persona"><input type="radio" name="chef" value="nutri"><span><img src="images/cozinheiro-maromba.png" alt="Chef Nutri" class="persona-img"><b>Chef Nutri</b><small>Foco em nutrição</small></span></label>
+                <label class="persona" id="cardMirabolante"><input type="radio" name="chef" value="mirabolante" disabled><span><img src="images/cozinheiro-maluco.png" alt="Chef Mirabolante" class="persona-img"><b>Chef Mirabolante</b><small id="faltaMirabolante">🔒 faltam 5 ingredientes</small></span></label>
+            </fieldset>
+        </section>
+
+        <button id="gerar" class="btn grande">Me salva!</button>
+        <div id="status" role="status"></div>
+        <section id="resultado" hidden></section>
+    </main>
+    <div id="carregando" class="carregando" role="alert" aria-live="polite" hidden>
+        <div class="caixa-carregando">
+            <div class="panela" aria-hidden="true"><span>🥚</span><span>🍅</span><span>🧀</span><span>🍚</span></div>
+            <h2>Aguarde enquanto criamos sua receita</h2>
+            <p id="etapa" class="etapa">Procurando receitas reais...</p>
+            <div class="barra-carregando" aria-hidden="true"><i></i></div>
+            <p class="dica-titulo">💡 Dica do chef</p>
+            <p id="dica" class="dica"></p>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
